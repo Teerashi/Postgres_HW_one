@@ -1,0 +1,14 @@
+ALTER TABLE workers
+ADD COLUMN vacation_days NUMERIC(3,1) NOT NULL DEFAULT 0,
+ADD COLUMN email VARCHAR(200) UNIQUE;
+
+ALTER TABLE workers
+ALTER COLUMN email SET NOT NULL,
+ADD CONSTRAINT "check email" CHECK(email != '');
+
+ALTER TABLE workers 
+ALTER COLUMN salary SET DEFAULT 500;
+
+ALTER TABLE workers
+RENAME TO employees;
+
